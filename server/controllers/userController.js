@@ -1,20 +1,44 @@
 const { model } = require('mongoose');
 const { User } = require('../models/userModel')
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
+const realCode = process.env.ACCESS_CODE;
+const jwtSecret = process.env.JWT_SECRET;
 
 
-
-module.exports.verifyAccessCode = async (req,res) => {
+module.exports.verifyAccessCode = (req, res) => {
     const { accessCode } = req.body;
-    const realCode = "A&C50!"
-    if (accessCode == realCode) {
-        console.log("Codes match");
-        return res.json({msg: "Access code verified successfully."})
-    } else {
-        console.log("Codes do not match");
+
+    if (!accessCode) {
+        return res.status(401).json({ message: 'Access denied. No access code provided.' });
+    }
+
+    try {
+        if (accessCode=== realCode) {
+            const token = jwt.sign({ accessCode }, jwtSecret);
+            return res.json({ token, msg: 'Access code verified successfully.' });
+        } else {
+            return res.status(401).json({ message: 'Invalid access code.' });
+        }
+    } catch (error) {
         return res.status(401).json({ message: 'Invalid access code.' });
     }
 };
+
+
+
+// module.exports.verifyAccessCode = async (req,res) => {
+
+//     const { accessCode } = req.body;
+
+//     if (accessCode===realCode) {
+//         const token = jwt.sign({ accessCode }, jwtSecret);
+//         return res.json({ token, msg: "Access code verified successfully." });
+//     } else {
+//         return res.status(401).json({ message: 'Invalid access code.' });
+//         }
+// };
 
 
 
@@ -27,8 +51,6 @@ module.exports.rsvp=(req,res) => {
         .catch(err => {
             console.log("in err" + err)
             res.status(400).json(err);
-            // res.status(400).json({ errors: err.errors });
-
         })
     }
     
