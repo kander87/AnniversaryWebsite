@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {useNavigate} from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.css';
-import SideNav from '../components/SideNav';
 import TopNav from '../components/TopNav';
 
 import axios from 'axios'
@@ -19,6 +18,16 @@ const RSVP = (props) => {
 
     const navigate= useNavigate()
 
+    useEffect(() => {
+        // Check if token is present in local storage or cookies
+        const token = localStorage.getItem('token'); // Use cookies to check
+    
+        if (!token) {
+          // Redirect the user back to the access code verification page
+            navigate('/')
+        }
+    }, []);
+
      //handler when the form is submitte
     const onSubmitHandler = e => {
         //prevent default behavior of the submit
@@ -30,7 +39,8 @@ const RSVP = (props) => {
             .then(res=>{
                 console.log("kiwi")
                 console.log(res)
-                navigate('/dashboard')
+                navigate('/TheEvent')
+                alert('Thank you for your RSVP!')
             })
             .catch(err => {
                 console.log("bananananana")
