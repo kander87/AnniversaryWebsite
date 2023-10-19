@@ -18,23 +18,18 @@ const RSVP = (props) => {
 
     const navigate= useNavigate()
 
-    useEffect(() => {
-        // Check if token is present in local storage or cookies
+    useEffect(() => {// Check if token is present in local storage or cookies
         const token = localStorage.getItem('token'); // Use cookies to check
-    
-        if (!token) {
-          // Redirect the user back to the access code verification page
-            navigate('/')
+            if (!token) {
+                console.log("notoken!")
+            navigate('/')// Redirect 
         }
     }, []);
 
      //handler when the form is submitte
     const onSubmitHandler = e => {
-        //prevent default behavior of the submit
         e.preventDefault();
         console.log("strawberry")
-        //make a post request to create a new prodct and taking in t
-        //data types you used in your model
         axios.post('http://localhost:8000/api/rsvp', {name, rsvp, rsvpCount, notes}) 
             .then(res=>{
                 console.log("kiwi")
@@ -51,14 +46,10 @@ const RSVP = (props) => {
             setRSVPCount("");
             setNotes("");  
     }
-
-
     
     return (
         <div className='dashboard'>
         <TopNav/>
-
-        {/* <SideNav/> */}
         <form className="RSVP p-2 " onSubmit={onSubmitHandler}>
         <h1 className="event-location">RSVP</h1>
             <div className="alert alert-info mt-3 mb-0 col-10 text-center mx-auto">
@@ -144,17 +135,13 @@ const RSVP = (props) => {
                     className='formInput col-10 notesInput' 
                             type="text" 
                             value={notes}
-                            
                             onChange={(e) => setNotes(e.target.value)}
                         />
-
                     </div>
                 </div>
             </div>
-                
             <button className='btn submitButton mt-2'>Submit</button>
         </form>
-
     </div>
     )
 }
