@@ -10,25 +10,26 @@ const AccessCode = (props) => {
 
     const navigate= useNavigate()
 
-    const accessCodeCheck = () => {
-            axios.post('http://localhost:8000/api/verifyAccessCode', {
+    const accessCodeCheck = async () => {
+        try {
+            const response = await axios.post('http://localhost:8000/api/verifyAccessCode', {
                 accessCode
-            })
-            .then(res => {
-                console.log("first response area")
-                console.log(res.data.msg)
-                if (res.data.msg === 'Access code verified successfully.') {
-                    localStorage.setItem('accessCode', JSON.stringify(accessCode));
-                    navigate(`/TheEvent`);
-                    console.log('Access code is correct');
-                } 
-            })
-
-            .catch((err) => {
-                setError('Invalid access code');
-                console.error(err);
             });
+    
+            if (response.data.msg === 'Access code verified successfully.') {
+                const token = response.data.token; // get the token from the response
+                localStorage.setItem('accessCode', JSON.stringify(accessCode));
+                localStorage.setItem('token', token); // Store the token in localStorage
+                navigate(`/TheEvent`);
+                console.log('Access code is correct');
+            } else {
+                setError('Invalid access code');
+            }
+        } catch (error) {
+            setError('Invalid access code');
+            console.error(error);
         }
+    };
     
     const handleSubmit = (e) => {
         e.preventDefault();

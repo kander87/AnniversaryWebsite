@@ -11,11 +11,13 @@ module.exports.verifyAccessCode = (req, res) => {
     const { accessCode } = req.body;
 
     if (!accessCode) {
+        console.log("I am in the no access code")
         return res.status(401).json({ message: 'Access denied. No access code provided.' });
     }
 
     try {
         if (accessCode=== realCode) {
+            console.log("access code verified")
             const token = jwt.sign({ accessCode }, jwtSecret);
             return res.json({ token, msg: 'Access code verified successfully.' });
         } else {
@@ -25,21 +27,6 @@ module.exports.verifyAccessCode = (req, res) => {
         return res.status(401).json({ message: 'Invalid access code.' });
     }
 };
-
-
-
-// module.exports.verifyAccessCode = async (req,res) => {
-
-//     const { accessCode } = req.body;
-
-//     if (accessCode===realCode) {
-//         const token = jwt.sign({ accessCode }, jwtSecret);
-//         return res.json({ token, msg: "Access code verified successfully." });
-//     } else {
-//         return res.status(401).json({ message: 'Invalid access code.' });
-//         }
-// };
-
 
 
 module.exports.rsvp=(req,res) => {
@@ -60,10 +47,10 @@ module.exports.rsvp=(req,res) => {
     //     .catch(err => res.status(500).json(err))
     // }
     
-    // module.exports.allUsers = (req, res) => {
+    // module.exports.allRSVPs = (req, res) => {
     //     User.find()
-    //     .then((users) => {
-    //         res.json(users)
+    //     .then((rsvps) => {
+    //         res.json(rsvps)
     //     })
     //     .catch((err) => {
     //         res.json({ message: 'Something went all wrong', error: err })

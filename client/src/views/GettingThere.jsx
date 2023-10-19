@@ -1,12 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
 import TopNav from '../components/TopNav';
-
-
+import {useNavigate} from 'react-router-dom'
 
 
 const GettingThere = () => {
-    const [accessCode] = useState([])
+    const [accessCode] = useState([]);
+
+    const navigate= useNavigate()
+
+    useEffect(() => {// Check if token is present in local storage or cookies
+        const token = localStorage.getItem('token'); // Use cookies to check
+        
+        if (!token) {
+                console.log("notoken!")
+            navigate('/')// Redirect the user back to the access code verification page
+        }
+    }, []);
     
     return (
         
