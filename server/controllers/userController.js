@@ -9,15 +9,11 @@ const jwtSecret = process.env.JWT_SECRET;
 
 module.exports.verifyAccessCode = (req, res) => {
     const { accessCode } = req.body;
-
     if (!accessCode) {
-        console.log("I am in the no access code")
         return res.status(401).json({ message: 'Access denied. No access code provided.' });
     }
-
     try {
         if (accessCode=== realCode) {
-            console.log("access code verified")
             const token = jwt.sign({ accessCode }, jwtSecret);
             return res.json({ token, msg: 'Access code verified successfully.' });
         } else {

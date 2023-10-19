@@ -20,27 +20,23 @@ require("./config/mongooseConfig");
 require("./routes/userRoutes")(app); 
 
 app.get('/rsvp', authenticateToken, (req, res) => {// Access user object from req.user if needed
-    console.log("checking authentication")
     const user = req.user;
     res.json({ message: 'Protected data retrieved successfully.', user });
 });
 
 
 app.get('/GettingThere', authenticateToken, (req, res) => {// Access user object from req.user if needed
-    console.log("checking authentication")
     const user = req.user;
     res.json({ message: 'Protected data retrieved successfully.', user });
 });
 
 
 app.get('/TheEvent', authenticateToken, (req, res) => {// Access user object from req.user if needed
-    console.log("checking authentication")
     const user = req.user;
     res.json({ message: 'Protected data retrieved successfully.', user });
 });
 
 app.get('/WhereToStay', authenticateToken, (req, res) => {// Access user object from req.user if needed
-    console.log("checking authentication")
     const user = req.user;
     res.json({ message: 'Protected data retrieved successfully.', user });
 });

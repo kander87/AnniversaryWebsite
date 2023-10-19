@@ -92,8 +92,7 @@ body{
   100% {
     opacity: 1;
     width: 350px;
-    max-height: 460px;
-    overflow: hidden;
+    height: auto;
     left: 0px;
     transform: translateX(0px);
   }
@@ -325,7 +324,6 @@ nav {
   position: relative;
 }
 
-/* Green header styles */
 .section-header-right {
   position: absolute;
   top: -20px;
@@ -384,6 +382,10 @@ nav {
   max-width: 600px;
 }
 
+.embeddedPics{
+  width: 90%
+}
+
 @media (max-width: 768px) {
   .event-section {
     padding: 60px 20px 20px 20px;
@@ -393,3 +395,4 @@ nav {
     padding: 60px 20px 20px 20px;
   }
 }
+
