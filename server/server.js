@@ -4,27 +4,27 @@ const bodyParser = require("body-parser")
 const { authenticateToken } = require('./middleware/authMiddleware');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
-const path = require('path')
+// const path = require('path')
 
-const _dirname = path.dirname("");
-const buildPath = path.join(_dirname , "../client/build");
+// const _dirname = path.dirname("");
+// const buildPath = path.join(_dirname , "../client/build");
 
 
 const port = 8000;
 
 const app = express();
-app.use(express.static(buildPath))
+// app.use(express.static(buildPath))
 
-app.get("/*", function(req,res){
-    res.sendFile(
-        path.join(_dirname, "../client/build/index.html"),
-        function(err){
-            if (err){
-                res.status(500).send(err);
-            }
-        }
-    )
-});
+// app.get("/*", function(req,res){
+//     res.sendFile(
+//         path.join(_dirname, "../client/build/index.html"),
+//         function(err){
+//             if (err){
+//                 res.status(500).send(err);
+//             }
+//         }
+//     )
+// });
 app.use(cors({
     origin: 'http://localhost:3000',
     credentials:true
