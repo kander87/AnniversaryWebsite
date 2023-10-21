@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
-import TopNav from '../components/TopNav';
 import {useNavigate} from 'react-router-dom'
 import Crawford from '../components/crawford.jpg';
 import KidsRoom from '../components/kidsroom.jpg';
@@ -28,8 +27,7 @@ const TheEvent = (props) => {
   // }, []);
 
     return (
-        <div>
-            <TopNav/>
+        <div className='container'>
             <div className="events-container">
                 <div className="event-header">
                   <h1 className="event-date">The Event</h1>
@@ -91,6 +89,7 @@ const TheEvent = (props) => {
                   <img src={Everyone} alt="family photo at wedding" className="embeddedPics" />
                 </div>
             </div>
+
         </div>
     )
 }
