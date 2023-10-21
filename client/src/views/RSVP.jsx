@@ -9,25 +9,28 @@ import axios from 'axios'
 
 
 const RSVP = (props) => {
-    const [accessCode] = useState([])
+    // const [accessCode] = useState([])
     const [name, setName] = useState("");
     const [rsvp, setRSVP] = useState("");
     const [rsvpCount, setRSVPCount] = useState("");
     const [notes, setNotes] = useState("");
     const [errors,setErrors]= useState([])
-
+    // const token = localStorage.getItem('token'); 
     const navigate= useNavigate()
 
-    useEffect(() => {// Check if token is present in local storage or cookies
-        const token = localStorage.getItem('token'); // Use cookies to check
-            if (!token) {
-                console.log("notoken!")
-            navigate('/')// Redirect 
-        }
-    }, []);
+    // useEffect(() => {// Check if token is present in local storage or cookies
+    //     const token = localStorage.getItem('token'); // Use cookies to check
+    //     console.log("token in the rsvp usestate" + token)    
+    //     if (!token) {
+    //             console.log("notoken!")
+    //         navigate('/')// Redirect 
+    //     }
+    // }, []);
 
      //handler when the form is submitte
     const onSubmitHandler = e => {
+        // const token = localStorage.getItem('token'); 
+        // console.log("token in the mf event handler for posting"+ token)
         e.preventDefault();
         console.log("strawberry")
         axios.post('http://localhost:8000/api/rsvp', {name, rsvp, rsvpCount, notes}) 

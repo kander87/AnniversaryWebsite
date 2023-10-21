@@ -12,17 +12,18 @@ import  MagnoliaToCook from '../components/MagnoliaToCook.jpg';
 
 
 const GettingThere = () => {
-    const [accessCode] = useState([]);
+    // const [accessCode] = useState([]);
 
     const navigate= useNavigate()
 
-    useEffect(() => {// Check if token is present in local storage or cookies
-        const token = localStorage.getItem('token'); // Use cookies to check
-        if (!token) {
-                console.log("notoken!")
-            navigate('/')// Redirect the user back to the access code verification page
-        }
-    }, []);
+    // useEffect(() => {// Check if token is present in local storage or cookies
+    //     const token = localStorage.getItem('token'); // Use cookies to check
+    //     console.log("token in the etting there page "+ token )
+    //     if (!token) {
+    //             console.log("notoken!")
+    //         navigate('/')// Redirect the user back to the access code verification page
+    //     }
+    // }, []);
     
     return (
         <div className='dashboard'>
