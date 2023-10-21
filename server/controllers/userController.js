@@ -1,31 +1,34 @@
 const { model } = require('mongoose');
 const { User } = require('../models/userModel')
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+// const bcrypt = require('bcrypt');
+// const jwt = require('jsonwebtoken');
 require('dotenv').config();
-const realCode = process.env.ACCESS_CODE;
-const jwtSecret = process.env.JWT_SECRET;
+// const realCode = process.env.ACCESS_CODE;
+// const jwtSecret = process.env.JWT_SECRET;
 
 
-module.exports.verifyAccessCode = (req, res) => {
-    const { accessCode } = req.body;
-    if (!accessCode) {
-        return res.status(401).json({ message: 'Access denied. No access code provided.' });
-    }
-    try {
-        if (accessCode=== realCode) {
-            const token = jwt.sign({ accessCode }, jwtSecret);
-            return res.json({ token, msg: 'Access code verified successfully.' });
-        } else {
-            return res.status(401).json({ message: 'Invalid access code.' });
-        }
-    } catch (error) {
-        return res.status(401).json({ message: 'Invalid access code.' });
-    }
-};
+// module.exports.verifyAccessCode = (req, res) => {
+//     const { accessCode } = req.body;
+//     if (!accessCode) {
+//         return res.status(401).json({ message: 'Access denied. No access code provided.' });
+//     }
+//     try {
+//         if (accessCode=== realCode) {
+//             const token = jwt.sign({ accessCode }, jwtSecret);
+//             console.log("token in the user controller "+ token)
+//             return res.json({ token, msg: 'Access code verified successfully.' });
+//         } else {
+//             return res.status(401).json({ message: 'Invalid access code.' });
+//         }
+//     } catch (error) {
+//         return res.status(401).json({ message: 'Invalid access code.' });
+//     }
+// };
 
 
 module.exports.rsvp=(req,res) => {
+    // const token = req.header('Authorization');
+    // console.log('Received token:', token);
     User.create(req.body)
     .then(user => {
         console.log("RSVP successfully made")

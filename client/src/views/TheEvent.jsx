@@ -12,18 +12,20 @@ import WeddingBread from '../components/WeddingBread.jpg';
 import Dresscode from '../components/Dresscode.jpg';
 
 
-const TheEvent = () => {
-    const [accessCode] = useState([]);
+const TheEvent = (props) => {
+    // const [accessCode] = useState([]);
     
     const navigate= useNavigate()
     
-    useEffect(() => {// Check if token is present in local storage or cookies
-      const token = localStorage.getItem('token'); // Use cookies to check
-          if (!token) {
-            console.log("notoken!")
-          navigate('/')// Redirect 
-      }
-  }, []);
+  //   useEffect(() => {// Check if token is present in local storage or cookies
+  //     const token = localStorage.getItem('token'); // Use cookies to check
+  //     console.log("token in the event page "+ token )
+
+  //         if (!token) {
+  //           console.log("notoken!")
+  //         navigate('/')// Redirect 
+  //     }
+  // }, []);
 
     return (
         <div>
