@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
-import TopNav from '../components/TopNav';
 import {useNavigate} from 'react-router-dom'
 import Residence from '../components/Residence.jpg';
 import Glidden from '../components/Glidden.jpg';
@@ -21,8 +20,7 @@ const GettingThere = (props) => {
     // }, []);
     
     return (
-        <div className='dashboard'>
-            <TopNav/>
+        <div className='container'>
             <div className="getting-there-container">
                 <div className="getting-there-header">
                     <h1 className="event-location">Where to Stay</h1>
@@ -48,6 +46,7 @@ const GettingThere = (props) => {
                     <img src={Glidden} alt="glidden hotel front entrance" className="embeddedPics" /> 
                 </div>
             </div>
+
         </div>
     )
 }

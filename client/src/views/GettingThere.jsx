@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
-import TopNav from '../components/TopNav';
 import {useNavigate} from 'react-router-dom'
 import OneO8thToMagnolia from '../components/OneO8thToMagnolia.jpg';
 import BathroomCoatrack from '../components/BathroomCoatrack.jpg';
 import Diagram from '../components/Diagram.jpg';
 import FloorPlan from '../components/FloorPlan.jpg';
 import FrontEntrance from '../components/FrontEntrance.jpg';
-import  MagnoliaToCook from '../components/MagnoliaToCook.jpg';            
+import  MagnoliaToCook from '../components/MagnoliaToCook.jpg';     
+
 
 
 
@@ -26,8 +26,7 @@ const GettingThere = () => {
     // }, []);
     
     return (
-        <div className='dashboard'>
-            <TopNav/>
+        <div className='container'>
             <div className="getting-there-container">
                 <div className="getting-there-header">
                 <h1 className="event-location">Getting There</h1>
@@ -93,6 +92,7 @@ const GettingThere = () => {
                         </p>
                 </div>
             </div>
+
         </div>
     )
 }

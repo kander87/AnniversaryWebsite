@@ -1,23 +1,33 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation} from 'react-router-dom';
 
 //import components and views ehre
 import Welcome from './views/Welcome';
-// import Dashboard from './views/Dashboard';
 import RSVP from './views/RSVP';
 import GettingThere from './views/GettingThere';
 import TheEvent from './views/TheEvent';
 import WhereToStay from './views/WhereToStay';
-
 import Header from './components/Header';
+import Footer from './components/Footer';
+import TopNav from './components/TopNav';
+
+
 
 
 function App(props) {
+
+  const location = useLocation();
+  const pathsToHideNavbar = ['/'];
+  const shouldHideNavbar = pathsToHideNavbar.includes(location.pathname);
+  const pathsToHideFooter = ['/'];
+  const shouldHideFooter = pathsToHideFooter.includes(location.pathname);
+
+
   return (
     <div className="App">
       <Header/>
-      {/* <SideNav/> */}
+      {!shouldHideNavbar && <TopNav/>}
       <Routes>
         <Route path='/' element={<Welcome/>}/>
         {/* <Route path='/dashboard' element={<Dashboard/>}/> */}
@@ -29,6 +39,12 @@ function App(props) {
 
 
       </Routes>
+      <div>
+      {!shouldHideFooter && <Footer/>}
+
+        </div>
+      
+
     </div>
   );
 }

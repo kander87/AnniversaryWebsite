@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import {useNavigate} from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.css';
-import TopNav from '../components/TopNav';
 
 import axios from 'axios'
 
@@ -51,14 +50,13 @@ const RSVP = (props) => {
     }
     
     return (
-        <div className='dashboard'>
-        <TopNav/>
+        <div className='container'>
         <form className="RSVP p-2 " onSubmit={onSubmitHandler}>
         <h1 className="event-location">RSVP</h1>
             <div className="alert alert-info mt-3 mb-0 col-10 text-center mx-auto">
                 Note: If you already RSVPed to Kate you do not need to fill this out unless you want to!
             </div>
-            <div className="container">
+            <div className="rsvpContainer">
                 <div className="row p-2">
                     <div className='formDiv form-group d-flex align-items-center'>
                         <label className='formLabel col-3'>Name(s): </label>
@@ -79,7 +77,7 @@ const RSVP = (props) => {
                 </div>
 
             </div>
-            <div className="container">
+            <div className="rsvpContainer">
                 <div className="row p-2">
                     <div className='formDiv form-group d-flex align-items-center'>
                         <label className=' formLabel col-3'>Attending? </label>
@@ -101,7 +99,7 @@ const RSVP = (props) => {
                             }
                 </div>
             </div>
-            <div className="container">
+            <div className="rsvpContainer">
                 <div className="row p-2">
                     <div className='formDiv form-group d-flex align-items-center'>
                         <label className=' formLabel col-3'># of Guests (Total):  </label>
@@ -129,7 +127,7 @@ const RSVP = (props) => {
                 </div>
             </div>
             
-            <div className="container">
+            <div className="rsvpContainer">
                 <div className="row p-2">
                     <div className='formDiv form-group d-flex align-items-center'>
                         <label className=' formLabel col-2'>Notes: </label>
@@ -145,6 +143,7 @@ const RSVP = (props) => {
             </div>
             <button className='btn submitButton mt-2'>Submit</button>
         </form>
+
     </div>
     )
 }
