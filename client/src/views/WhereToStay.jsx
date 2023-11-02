@@ -51,7 +51,7 @@ const GettingThere = (props) => {
                 <div className="getting-there-section">
                     <h3 className="section-header-right">Hotels Under $100/Night</h3>
                     <p><span className="font-weight-bold" >Areas to look in:</span>  Independence (~25 min from venue), Shaker Heights (~30 min from venue), Wickliffe (~20 min from venue) </p>
-                    <p>While the area nearby tends to be more expensive due to being in the city, there are plenty of great places to stay that are more budget friendly as loing as you are willing to have a little bit of a longer drive to the venue. There are a bunch of Extended Stay of America hotels that are very affordable, Comfort Inns, Ramadas, Red Roofs, etc. My family and I have oftne stayed in Independence and it is a great area! (I can't speak for the other areas though!). </p>
+                    <p>While the area nearby tends to be more expensive due to being in the city, there are plenty of great places to stay that are more budget friendly as long as you are willing to have a little bit of a longer drive to the venue. There are a bunch of Extended Stay of America hotels that are very affordable, Comfort Inns, Ramadas, Red Roofs, etc. My family and I have often stayed in Independence and it is a great area! (I can't speak for the other areas though!).</p>
                 </div>
             </div>
 

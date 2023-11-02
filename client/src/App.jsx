@@ -16,9 +16,9 @@ import TopNav from './components/TopNav';
 function App(props) {
 
   const location = useLocation();
-  const pathsToHideNavbar = ['/'];
+  const pathsToHideNavbar = ['/', '//'];
   const shouldHideNavbar = pathsToHideNavbar.includes(location.pathname);
-  const pathsToHideFooter = ['/'];
+  const pathsToHideFooter = ['/', '//'];
   const shouldHideFooter = pathsToHideFooter.includes(location.pathname);
 
 
