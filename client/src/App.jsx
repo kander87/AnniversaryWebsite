@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Routes, Route, useLocation} from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
 //import components and views ehre
 import Welcome from './views/Welcome';
@@ -11,8 +11,6 @@ import WhereToStay from './views/WhereToStay';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import TopNav from './components/TopNav';
-
-
 
 
 function App(props) {
@@ -26,24 +24,20 @@ function App(props) {
 
   return (
     <div className="App">
-      <Header/>
-      {!shouldHideNavbar && <TopNav/>}
+      <Header />
+      {!shouldHideNavbar && <TopNav />}
       <Routes>
-        <Route path='/' element={<Welcome/>}/>
-        {/* <Route path='/dashboard' element={<Dashboard/>}/> */}
-        <Route path='/rsvp' element={<RSVP/>}/>
+        <Route path='/' element={<Welcome />} />
+        <Route path='/rsvp' element={<RSVP />} />
         {/* <Route path='/story' element={<Story/>}/> */}
-        <Route path='/theEvent' element={<TheEvent/>}/>
-        <Route path='/GettingThere' element={<GettingThere/>}/>
-        <Route path='/WhereToStay' element={<WhereToStay/>}/>
-
+        <Route path='/theEvent' element={<TheEvent />} />
+        <Route path='/GettingThere' element={<GettingThere />} />
+        <Route path='/WhereToStay' element={<WhereToStay />} />
 
       </Routes>
       <div>
-      {!shouldHideFooter && <Footer/>}
-
-        </div>
-      
+        {!shouldHideFooter && <Footer />}
+      </div>
 
     </div>
   );
